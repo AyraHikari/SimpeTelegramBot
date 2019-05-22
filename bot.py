@@ -25,7 +25,7 @@ else:
 	CreatorID = CreatorID
 
 bot = telegram.Bot(token=TOKEN)
-updater = Updater(token=TOKEN)
+updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
 def Start(bot, update):
