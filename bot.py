@@ -2,6 +2,7 @@ import telegram
 import requests
 import logging
 import json
+import os
 
 from telegram import ParseMode
 from telegram.ext import Updater
