@@ -1,5 +1,4 @@
 import telegram
-import requests
 import logging
 import json
 import os
@@ -28,14 +27,14 @@ bot = telegram.Bot(token=TOKEN)
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
-def Start(bot, update):
+def Start(update, context):
 	update.effective_message.reply_text("Hai!")
 
-def Reply(bot, update):
+def Reply(update, context):
 	msg = update.effective_message.text
 	update.effective_message.reply_text(msg)
 
-def SendToCreator(bot, update):
+def SendToCreator(update, context):
 	name = update.effective_message.from_user.first_name
 	msg = update.effective_message
 	text = update.effective_message.text
@@ -49,7 +48,7 @@ def SendToCreator(bot, update):
 	bot.sendMessage(CreatorID, message, parse_mode=ParseMode.MARKDOWN)
 	update.effective_message.reply_text("Message was sent!")
 
-def Log(bot, update):
+def Log(update, context):
 	message = update.effective_message
 	eventdict = message.to_dict()
 	jsondump = json.dumps(eventdict, indent=4)
